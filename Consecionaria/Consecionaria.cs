@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Consecionaria
+{
+    internal class Consecionaria
+    {
+        public List<Automovil> Catalogo {  get; set; }
+        public int CantidadAutos {  get; set; }
+        public int MaxAutos {  get; set; }
+
+        public Consecionaria()
+        {
+            Catalogo = new List<Automovil>();
+            CantidadAutos = 0;
+            MaxAutos = 10;
+        }
+
+        public void agregarAuto(Automovil auto)
+        {
+            if(MaxAutos < MaxAutos)
+            {
+                CantidadAutos++;
+                Catalogo.Add(auto);
+            }
+            else
+            {
+                Console.WriteLine("La consecionaria esta llena");
+            }
+            
+        }
+        public void eliminarAuto(string matricula)
+        {
+            Automovil? autoencontrado = Catalogo.Find((auto)=> auto.matricula == matricula);
+            
+            if(autoencontrado != null)
+            {
+                Catalogo.Remove(autoencontrado);
+            }
+            CantidadAutos--;
+        }
+        public void mostrarAutos()
+        {
+            foreach(Automovil auto in Catalogo)
+            {
+                Console.WriteLine(auto.ToString());
+            }
+        }
+    }
+}
