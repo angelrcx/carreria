@@ -21,7 +21,7 @@ namespace Consecionaria
 
         public void agregarAuto(Automovil auto)
         {
-            if(MaxAutos < MaxAutos)
+            if(CantidadAutos < MaxAutos)
             {
                 CantidadAutos++;
                 Catalogo.Add(auto);
@@ -39,8 +39,14 @@ namespace Consecionaria
             if(autoencontrado != null)
             {
                 Catalogo.Remove(autoencontrado);
+                Console.WriteLine("Auto eliminado correctamente.");
+                CantidadAutos--;
             }
-            CantidadAutos--;
+            else
+            {
+                Console.WriteLine("Auto no encontrado.");
+            }
+            
         }
         public void mostrarAutos()
         {
